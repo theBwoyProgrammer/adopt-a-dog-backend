@@ -1,0 +1,2 @@
+class FoundationWolf < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class AvailablePuppy < ApplicationRecord
+end

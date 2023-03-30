@@ -1,0 +1,2 @@
+class FoundationWolvesController < ApplicationController
+end
