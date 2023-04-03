@@ -1,0 +1,2 @@
+class MaleWolvesController < ApplicationController
+end

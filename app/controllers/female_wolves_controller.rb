@@ -1,0 +1,2 @@
+class FemaleWolvesController < ApplicationController
+end

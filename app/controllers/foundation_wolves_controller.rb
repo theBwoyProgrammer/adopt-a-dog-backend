@@ -1,2 +1,0 @@
-class FoundationWolvesController < ApplicationController
-end
