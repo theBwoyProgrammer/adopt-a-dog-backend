@@ -1,7 +1,7 @@
 class AvailablePuppy < ApplicationRecord
     # add associations
-    belongs_to :father, class_name: "AvailablePuppy", optional: true
-    belongs_to :mother, class_name: "AvailablePuppy", optional: true
+    belongs_to :MaleWolf, class_name: "AvailablePuppy", optional: true
+    belongs_to :FemaleWolf, class_name: "AvailablePuppy", optional: true
    
     # add apropriate validations
     validates :name, :date_of_birth, :picture, :weight, :description, :gender, :father, :mother, presence: true

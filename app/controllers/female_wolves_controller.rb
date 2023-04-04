@@ -2,7 +2,7 @@ class FemaleWolvesController < ApplicationController
     # index and show methods to showcase my females
 
     def index
-        female_wolves = FemaleWolves.all
+        female_wolves = FemaleWolf.all
         render json: female_wolves
     end
 

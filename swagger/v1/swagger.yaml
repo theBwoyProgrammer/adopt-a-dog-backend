@@ -1,0 +1,176 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/available_puppies":
+    get:
+      summary: Fetch the available puppies
+      tags:
+      - Available Puppies
+      parameters:
+      - name: puppy
+        in: query
+        properties:
+          name:
+            type: string
+          date_of_birth:
+            type: date
+          picture:
+            type: string
+          weight:
+            type: integer
+          description:
+            type: string
+          gender:
+            type: string
+          father:
+            type: string
+          mother:
+            type: string
+          wolf_percentage:
+            type: integer
+          availability:
+            type: boolean
+        required:
+        - name
+        - date_of_birth
+        - picture
+        - weight
+        - description
+        - gender
+        - father
+        - mother
+        - wolf_percentage
+        - availability
+        schema:
+          type: object
+      responses:
+        '200':
+          description: puppies fetched
+  "/available_puppies/{id}":
+    get:
+      summary: Retrieves a pup
+      tags:
+      - available pup
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: pup found
+        '404':
+          description: pup not found
+        '406':
+          description: unsupported accept header
+  "/female_wolves":
+    get:
+      summary: Fetch the female wolves
+      tags:
+      - female wolves
+      parameters:
+      - name: femaleWolf
+        in: query
+        properties:
+          name:
+            type: string
+          date_of_birth:
+            type: date
+          picture:
+            type: string
+          weight:
+            type: integer
+          description:
+            type: string
+          wolf_percentage:
+            type: integer
+        required:
+        - name
+        - date_of_birth
+        - picture
+        - weight
+        - description
+        - wolf_percentage
+        schema:
+          type: object
+      responses:
+        '200':
+          description: female wolves fetched
+  "/female_wolves/{id}":
+    get:
+      summary: Retrieves a female wolf
+      tags:
+      - female wolf
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: female wolf found
+        '404':
+          description: female wolf not found
+        '406':
+          description: unsupported accept header
+  "/male_wolves":
+    get:
+      summary: Fetch the male wolves
+      tags:
+      - male wolves
+      parameters:
+      - name: maleWolf
+        in: query
+        properties:
+          name:
+            type: string
+          date_of_birth:
+            type: date
+          picture:
+            type: string
+          weight:
+            type: integer
+          description:
+            type: string
+          wolf_percentage:
+            type: integer
+        required:
+        - name
+        - date_of_birth
+        - picture
+        - weight
+        - description
+        - wolf_percentage
+        schema:
+          type: object
+      responses:
+        '200':
+          description: male wolves fetched
+  "/male_wolves/{id}":
+    get:
+      summary: Retrieves a male wolf
+      tags:
+      - male wolf
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: male wolf found
+        '404':
+          description: male wolf not found
+        '406':
+          description: unsupported accept header
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
