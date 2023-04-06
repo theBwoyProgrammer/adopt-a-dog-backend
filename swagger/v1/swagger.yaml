@@ -8,7 +8,7 @@ paths:
     get:
       summary: Fetch the available puppies
       tags:
-      - Available Puppies
+      - Retrieves all available Puppies
       parameters:
       - name: puppy
         in: query
@@ -49,11 +49,56 @@ paths:
       responses:
         '200':
           description: puppies fetched
+    post:
+      summary: Creates a puppy
+      tags:
+      - Creates a puppy
+      parameters: []
+      responses:
+        '201':
+          description: puppy created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                date_of_birth:
+                  type: date
+                picture:
+                  type: string
+                weight:
+                  type: integer
+                description:
+                  type: string
+                gender:
+                  type: string
+                father:
+                  type: string
+                mother:
+                  type: string
+                wolf_percentage:
+                  type: integer
+                availability:
+                  type: boolean
+              required:
+              - name
+              - date_of_birth
+              - picture
+              - weight
+              - description
+              - gender
+              - father
+              - mother
+              - wolf_percentage
+              - availability
   "/available_puppies/{id}":
     get:
-      summary: Retrieves a pup
+      summary: Retrieves a puppy
       tags:
-      - available pup
+      - Retrieves a puppy
       parameters:
       - name: id
         in: path
@@ -62,16 +107,101 @@ paths:
           type: string
       responses:
         '200':
-          description: pup found
+          description: puppy found
         '404':
-          description: pup not found
+          description: puppy not found
         '406':
           description: unsupported accept header
+    put:
+      summary: Updates a puppy
+      tags:
+      - Updates a puppy
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: puppy updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                date_of_birth:
+                  type: date
+                picture:
+                  type: string
+                weight:
+                  type: integer
+                description:
+                  type: string
+                gender:
+                  type: string
+                father:
+                  type: string
+                mother:
+                  type: string
+                wolf_percentage:
+                  type: integer
+                availability:
+                  type: boolean
+    delete:
+      summary: Deletes a puppy
+      tags:
+      - Deletes a puppy
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: puppy deleted
   "/female_wolves":
+    post:
+      summary: Creates a female wolf
+      tags:
+      - Creates a female wolf
+      parameters: []
+      responses:
+        '201':
+          description: Male wolf created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                date_of_birth:
+                  type: date
+                picture:
+                  type: string
+                weight:
+                  type: integer
+                description:
+                  type: string
+                wolf_percentage:
+                  type: integer
+              required:
+              - name
+              - date_of_birth
+              - picture
+              - weight
+              - description
+              - wolf_percentage
     get:
       summary: Fetch the female wolves
       tags:
-      - female wolves
+      - Retrieves all female wolves
       parameters:
       - name: femaleWolf
         in: query
@@ -99,12 +229,12 @@ paths:
           type: object
       responses:
         '200':
-          description: female wolves fetched
+          description: male wolves fetched
   "/female_wolves/{id}":
     get:
       summary: Retrieves a female wolf
       tags:
-      - female wolf
+      - Retrieves a female wolf
       parameters:
       - name: id
         in: path
@@ -114,15 +244,92 @@ paths:
       responses:
         '200':
           description: female wolf found
+    put:
+      summary: Updates a female wolf
+      tags:
+      - Updates a female wolf
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: female updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                date_of_birth:
+                  type: date
+                picture:
+                  type: string
+                weight:
+                  type: integer
+                description:
+                  type: string
+                wolf_percentage:
+                  type: integer
+    delete:
+      summary: Deletes a female wolf
+      tags:
+      - Deletes female wolf
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: female deleted
         '404':
           description: female wolf not found
         '406':
           description: unsupported accept header
   "/male_wolves":
+    post:
+      summary: Creates a male wolf
+      tags:
+      - Creates a male wolf
+      parameters: []
+      responses:
+        '201':
+          description: Male wolf created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                date_of_birth:
+                  type: date
+                picture:
+                  type: string
+                weight:
+                  type: integer
+                description:
+                  type: string
+                wolf_percentage:
+                  type: integer
+              required:
+              - name
+              - date_of_birth
+              - picture
+              - weight
+              - description
+              - wolf_percentage
     get:
       summary: Fetch the male wolves
       tags:
-      - male wolves
+      - Retrieves all male wolves
       parameters:
       - name: maleWolf
         in: query
@@ -155,7 +362,7 @@ paths:
     get:
       summary: Retrieves a male wolf
       tags:
-      - male wolf
+      - Retrieves a male wolf
       parameters:
       - name: id
         in: path
@@ -165,6 +372,50 @@ paths:
       responses:
         '200':
           description: male wolf found
+    put:
+      summary: Updates a male wolf
+      tags:
+      - Updates a male wolf
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Male updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                date_of_birth:
+                  type: date
+                picture:
+                  type: string
+                weight:
+                  type: integer
+                description:
+                  type: string
+                wolf_percentage:
+                  type: integer
+    delete:
+      summary: Deletes a male wolf
+      tags:
+      - Deletes Male wolf
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Male deleted
         '404':
           description: male wolf not found
         '406':
